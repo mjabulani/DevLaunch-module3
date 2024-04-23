@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 public class Library {
 
 
-    HashMap<Author, List<Book>> library = new HashMap<>();
+    private HashMap<Author, List<Book>> library = new HashMap<>();
 
     public Library() {
 

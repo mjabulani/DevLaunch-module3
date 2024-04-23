@@ -78,7 +78,10 @@ public class Main {
         books.add(book2);
         books.add(book3);
 
+        Library library = new Library();
 
+        library.addAuthor(author1);
+        library.addBookToAuthor(book1, author1);
 
 
     }

@@ -14,6 +14,18 @@ public class Author {
         this.favouriteGenre = favouriteGenre;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Genre getFavouriteGenre() {
+        return favouriteGenre;
+    }
+
     @Override
     public String toString() {
         return "Author{" +
@@ -29,18 +41,6 @@ public class Author {
         if (o == null || getClass() != o.getClass()) return false;
         Author author = (Author) o;
         return age == author.age && Objects.equals(name, author.name) && favouriteGenre == author.favouriteGenre;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public Genre getFavouriteGenre() {
-        return favouriteGenre;
     }
 
     @Override

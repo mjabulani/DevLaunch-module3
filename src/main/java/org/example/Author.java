@@ -1,6 +1,8 @@
 package org.example;
 
-public class Author implements Comparable<Author> {
+import java.util.Objects;
+
+public class Author {
 
     private String name;
     private int age;
@@ -12,8 +14,6 @@ public class Author implements Comparable<Author> {
         this.favouriteGenre = favouriteGenre;
     }
 
-
-
     @Override
     public String toString() {
         return "Author{" +
@@ -24,7 +24,27 @@ public class Author implements Comparable<Author> {
     }
 
     @Override
-    public int compareTo(Author o) {
-        return o.name.compareTo(this.name);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return age == author.age && Objects.equals(name, author.name) && favouriteGenre == author.favouriteGenre;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Genre getFavouriteGenre() {
+        return favouriteGenre;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, favouriteGenre);
     }
 }

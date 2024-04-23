@@ -1,41 +1,43 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Library {
 
 
     HashMap<Author, List<Book>> library = new HashMap<>();
 
-    public Library(Author author, List<Book> books) {
-        this.library.put(author, books);
+    public Library() {
+
     }
 
-    public HashSet<Book> getBooksOfAuthor(Author author) {
-        return new HashSet<>(library.get(author));
-
+    public List<Book> getBooksOfAuthor(String authorName) {
+        return library.entrySet().stream()
+                .filter(entry -> entry.getKey()
+                        .getName().equals(authorName)).map(Map.Entry::getValue).flatMap(List::stream).collect(Collectors.toList());
     }
 
     public void addBookToAuthor(Book book, Author author) {
+        List<Book> books = library.getOrDefault(author, new ArrayList<>());
+        books.add(book);
+        library.put(author, books);
     }
 
-    public HashSet<Author> getAllAuthors() {
-        return null;
+    public List<Author> getAllAuthors() {
+        return new ArrayList<>(library.keySet());
     }
 
-    public HashSet<Book> getAllBooks() {
-        return null;
+    public List<Book> getAllBooks() {
+        return library.entrySet().stream().map(Map.Entry::getValue).flatMap(List::stream).collect(Collectors.toList());
     }
 
-    public HashMap<Author, Book> getAllBooksAndAuthors() {
-        return null;
+    public HashMap<Author, List<Book>> getAllBooksAndAuthors() {
+        return library;
     }
 
     public void addAuthor(Author author) {
-
+        library.put(author, new ArrayList<>());
     }
 
     @Override

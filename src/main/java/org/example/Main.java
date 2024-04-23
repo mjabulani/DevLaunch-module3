@@ -23,7 +23,6 @@ public class Main {
                 .forEach(e -> System.out.println("Word: " + e.getKey() + " | count: " + e.getValue()));
 
 
-
         Student s1 = new Student(34, 1.83, "Marek", "Jabulani");
         Student s2 = new Student(11, 1.85, "Mati", "Wiewior");
         Student s3 = new Student(42, 1.68, "Anna", "Mazur");
@@ -49,7 +48,7 @@ public class Main {
             System.out.println(student);
         }
 
-      StudentHeightComparator comparator = new StudentHeightComparator();
+        StudentHeightComparator comparator = new StudentHeightComparator();
 
         Collections.sort(students, comparator);
 
@@ -78,10 +77,6 @@ public class Main {
         books.add(book1);
         books.add(book2);
         books.add(book3);
-        Library library = new Library(author1, books);
-
-        System.out.println(library);
-
 
 
 

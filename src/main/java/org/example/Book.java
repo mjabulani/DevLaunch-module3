@@ -12,12 +12,4 @@ public class Book {
         this.numberOfPages = numberOfPages;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", genre=" + genre +
-                ", numberOfPages=" + numberOfPages +
-                '}';
-    }
 }

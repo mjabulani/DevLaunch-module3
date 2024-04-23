@@ -27,40 +27,40 @@ public class Main {
         Student s2 = new Student(11, 1.85, "Mati", "Wiewior");
         Student s3 = new Student(42, 1.68, "Anna", "Mazur");
         Student s4 = new Student(29, 1.74, "Wojtek", "Rabinski");
+        Student s5 = new Student(24, 1.74, "Wojtek", "Czaban");
+
 
         List<Student> students = new ArrayList<>();
         students.add(s1);
         students.add(s2);
         students.add(s3);
         students.add(s4);
+        students.add(s5);
 
         // before sorting
         for (Student student : students) {
             System.out.println(student);
         }
 
-        // after sorting by overridden comparator by age
+        // after sorting by overridden comparator by name and age
 
-        System.out.println("Sorting by age");
+        System.out.println("Sorting by name and age");
         Collections.sort(students);
 
         for (Student student : students) {
             System.out.println(student);
         }
 
-        StudentHeightComparator comparator = new StudentHeightComparator();
+        StudentNameComparator studentNameComparator = new StudentNameComparator();
 
-        Collections.sort(students, comparator);
-
-        // after sorting by custom comparator by height
-
-        System.out.println("Sorting by height");
-        Collections.sort(students, comparator);
+        Collections.sort(students, studentNameComparator);
+        System.out.println("Sorting by name reversed");
 
         for (Student student : students) {
             System.out.println(student);
         }
 
+        //
         Author author1 = new Author("Franz Kafka", 30, Genre.POSTAPO);
         Author author2 = new Author("JRR Tolkien", 50, Genre.FANTASY);
         Author author3 = new Author("Terry Hayes", 40, Genre.CRIMINAL);
@@ -83,6 +83,7 @@ public class Main {
         library.addAuthor(author1);
         library.addBookToAuthor(book1, author1);
 
+        System.out.println(authors);
 
     }
 

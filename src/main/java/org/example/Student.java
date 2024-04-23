@@ -1,8 +1,6 @@
 package org.example;
 
 
-import java.util.Objects;
-
 public class Student implements Comparable<Student> {
 
     private int age;
@@ -17,47 +15,30 @@ public class Student implements Comparable<Student> {
         this.lastName = lastName;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(age, height, name, lastName);
-    }
-
     @Override
     public int compareTo(Student o) {
+        if (name.compareTo(o.getName()) != 0) {
+            return name.compareTo(o.getName());
+        }
         return Integer.compare(this.age, o.age);
     }
+
+    public int getAge() { return age; }
+
+    public double getHeight() { return height; }
+
+    public String getName() { return name; }
+
+    public String getLastName() { return lastName;}
+
+    public void setAge(int age) { this.age = age; }
+
+    public void setHeight(double height) { this.height = height; }
+
+    public void setName(String name) { this.name = name; }
+
+    public void setLastName(String lastName) { this.lastName = lastName; }
+
 
     @Override
     public String toString() {

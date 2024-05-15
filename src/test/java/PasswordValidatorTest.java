@@ -69,4 +69,30 @@ public class PasswordValidatorTest {
         String p = "Haslo";
         Assertions.assertFalse(passwordValidator.hasSpecialCharacter(p));
     }
+
+    // Tests for complex validator
+
+    @Test
+    void passwordIsCorrect() {
+        String p = "ASDFGQWErt123!@#";
+        Assertions.assertTrue(passwordValidator.goodPassword(p));
+    }
+
+    @Test
+    void passwordMissingNumbers() {
+        String p = "ASIODio!@#";
+        Assertions.assertFalse(passwordValidator.goodPassword(p));
+    }
+
+    @Test
+    void passwordMissingSpecialChars() {
+        String p = "ASIO123D2io123";
+        Assertions.assertFalse(passwordValidator.goodPassword(p));
+    }
+
+    @Test
+    void passwordWithWhiteSpaces() {
+        String p = "ASIO123D2i o 123!@#$";
+        Assertions.assertFalse(passwordValidator.goodPassword(p));
+    }
 }

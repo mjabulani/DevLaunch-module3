@@ -13,6 +13,14 @@ public class PasswordValidator {
     public PasswordValidator() {
     }
 
+    public boolean goodPassword(String password) {
+        return (hasGoodLength(password)
+                && hasNoWhiteSpaces(password)
+                && hasNoRepetitions(password)
+                && hasNumbers(password)
+                && hasSpecialCharacter(password));
+    }
+
     public boolean hasGoodLength(String password) {
         return password.length() >= minLength;
     }

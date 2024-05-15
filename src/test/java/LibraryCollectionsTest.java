@@ -11,7 +11,22 @@ import java.util.Collections;
 public class LibraryCollectionsTest {
 
     LibraryCollections libraryCollections = new LibraryCollections();
-    LibraryCollections libraryCollections2 = new LibraryCollections();
 
+    // Tests for getBooksOfAuthor()
+
+    @Test
+    void bookOfAuthor() {
+        Book book = new Book("ASD", Genre.POSTAPO, 123);
+        Author author = new Author("Alfred", 33, Genre.POSTAPO);
+        libraryCollections.addAuthor(author);
+        libraryCollections.addBookToAuthor(book);
+        Assertions.assertTrue(libraryCollections.getBooksOfAuthor(author.getName()), book);
+    }
+
+        // Tests for getAllBooks()
+
+        // Tests for getAllBooksAndAuthors()
+
+        // Tests for addAuthor()
     }
 

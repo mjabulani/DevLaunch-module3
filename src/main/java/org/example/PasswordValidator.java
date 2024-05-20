@@ -26,15 +26,23 @@ public class PasswordValidator {
     }
 
     public boolean hasNoWhiteSpaces(String password) {
-        return !password.contains(" ");
+        return !password.contains("\\s");   // \\s - wszystkie biale znaki
     }
 
     public boolean hasNoRepetitions(String password) {
-        HashSet<Character> setOfChars = new HashSet<Character>();
-        for (int i = 0; i < password.length(); i++) {
-            setOfChars.add(password.charAt(i));
+//        HashSet<Character> setOfChars = new HashSet<Character>();
+//        for (int i = 0; i < password.length(); i++) {
+//            setOfChars.add(password.charAt(i));
+//        }
+//        return setOfChars.size() == password.length();
+//    }
+
+        for (int i = 0; i < password.length() - 1; i++) {
+            if (password.charAt(i) == password.charAt(i + 1)) {
+                return false;
+            }
         }
-        return setOfChars.size() == password.length();
+        return true;
     }
 
     public boolean hasNumbers(String password) {

@@ -18,11 +18,13 @@ public class StudentTest {
         studentList.add(s1);
         studentList.add(s2);
         studentList.add(s3);
-        List<Student> studentList2 = studentList;
-        System.out.println("Before sorting: " + studentList);
+
+        List<Student> studentList2 = new ArrayList<>();
+        studentList2.add(s1);
+        studentList2.add(s2);
+        studentList2.add(s3);
         Collections.sort(studentList2);
-        System.out.println("After  sorting: " + studentList2);
-        Assertions.assertNotSame(studentList, studentList2);
+        Assertions.assertNotEquals(studentList, studentList2);
     }
 
     @Test
@@ -31,7 +33,10 @@ public class StudentTest {
         studentList.add(s1);
         studentList.add(s2);
         studentList.add(s3);
-        List<Student> studentList2 = studentList;
+        List<Student> studentList2 = new ArrayList<>();
+        studentList2.add(s1);
+        studentList2.add(s2);
+        studentList2.add(s3);
 
         Assertions.assertEquals(studentList2, studentList);
     }

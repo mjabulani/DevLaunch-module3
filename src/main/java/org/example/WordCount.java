@@ -6,13 +6,15 @@ public class WordCount {
 
     public HashMap<String, Integer> wordCount(String text) {
         HashMap<String, Integer> map = new HashMap<>();
-        for (String word : text.split("[\\s\\-\\.\\'\\?\\,\\_\\@]+")) {
-            if (map.containsKey(word)) {
-                map.put(word, map.get(word) + 1);
-            } else  {
-                map.put(word, 1);
+        if (text != null) {
+            for (String word : text.split("[\\s\\-\\.\\'\\?\\,\\_\\@]+")) {
+                if (map.containsKey(word)) {
+                    map.put(word, map.get(word) + 1);
+                } else {
+                    map.put(word, 1);
+                }
             }
         }
         return map;
-        }
+    }
 }

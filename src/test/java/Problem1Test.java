@@ -18,9 +18,9 @@ public class Problem1Test {
         Assertions.assertEquals(-34, problem1Test.sumArray(array));
     }
 
-//    @Test
-//    public void checkMaxIntger() {
-//        int[] array = {Integer.MAX_VALUE, 1};
-//        Assertions.assertEquals(Integer.MAX_VALUE+1, problem1Test.sumArray(array));
-//    }
+    @Test
+    public void checkMaxIntger() {
+        int[] array = {Integer.MAX_VALUE, 1};
+        Assertions.assertEquals(Integer.MAX_VALUE+1, problem1Test.sumArray(array));
+    }
 }

@@ -5,9 +5,7 @@ import org.example.LibraryCollections;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class LibraryCollectionsTest {
 
@@ -73,14 +71,14 @@ public class LibraryCollectionsTest {
 
     @Test
     void getAllAuthorsWhenNoAuthors() {
-        Assertions.assertEquals(emptyAuthorList, new ArrayList<Author>());
+        Assertions.assertEquals(new HashSet<Author>(), libraryCollections.getAllAuthors());
     }
 
     // get all books
 
     @Test
     void getAllBooksWhenNoBooks() {
-        Assertions.assertEquals(emptyListOfBooks, new ArrayList<Book>());
+        Assertions.assertEquals(new ArrayList<Book>(), libraryCollections.getAllBooks());
     }
 
 }
